@@ -1,14 +1,19 @@
 function FindProxyForURL(url, host) {
-    // Redirigir IP 104.233.26.218 a proxy1 para freepik.com
-    if (shExpMatch(host, "104.233.26.218") && shExpMatch(url, "*www.freepik.com*")) {
-        return "https://www.freepik.com:6056"; // Cambia "proxy1.example.com:8080" por tu proxy real
+    // Excluir www.domestika.org y domestika.org del proxy
+    if (dnsDomainIs(host, "domestika.org") || shExpMatch(host, "www.domestika.org")) {
+        return "DIRECT"; // Conexión directa
     }
 
-    // Redirigir IP 104.239.43.124 a proxy2 para elements.envato.com
-    if (shExpMatch(host, "104.239.43.124") && shExpMatch(url, "*elements.envato.com*")) {
-        return "https://elements.envato.com:5852"; 
+    // Redirigir https://www.freepik.com a 104.233.26.218:6056
+    if (shExpMatch(host, "www.freepik.com") || shExpMatch(url, "*www.freepik.com*")) {
+        return "PROXY 104.233.26.218:6056";
     }
 
-    // Si no coincide con ninguna regla, bloquear la conexión
-    return "PROXY 0.0.0.0:80"; // Bloquear tráfico
+    // Redirigir https://elements.envato.com a 104.239.43.124:5852
+    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "*elements.envato.com*")) {
+        return "PROXY 104.239.43.124:5852";
+    }
+
+    // Usar proxy para todas las demás páginas
+    return "PROXY 104.239.43.124:5852";
 }
