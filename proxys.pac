@@ -1,6 +1,6 @@
 function FindProxyForURL(url, host) {
     // Proxy para envato elements
-    if (shExpMatch(host, "*https://elements.envato.com")) {
+    if (shExpMatch(host, "https://elements.envato.com")) {
         return "PROXY 104.239.43.124:5852"; // Reemplaza con la IP y puerto del proxy para envato
     }
 
