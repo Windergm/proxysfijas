@@ -10,7 +10,7 @@ function FindProxyForURL(url, host) {
     }
 
     // Redirigir https://elements.envato.com a 104.239.43.124:5852
-    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "*elements.envato.com*")) {
+    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "elements.envato.com")) {
         return "PROXY 104.239.43.124:5852";
     }
 
