@@ -5,7 +5,7 @@ function FindProxyForURL(url, host) {
     }
 
     // Redirigir https://www.freepik.com a 104.233.26.218:6056
-    if (shExpMatch(host, "freepik.com") || shExpMatch(url, "*freepik.com*")) {
+    if (shExpMatch(host, "freepik.com") || shExpMatch(url, "freepik.com")) {
         return "PROXY 104.233.26.218:6056";
     }
 
