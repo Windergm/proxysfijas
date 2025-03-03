@@ -5,12 +5,12 @@ function FindProxyForURL(url, host) {
     }
 
     // Redirigir https://www.freepik.com a 104.233.26.218:6056
-    if (shExpMatch(host, "freepik.com") || shExpMatch(url, "freepik.com")) {
+    if (shExpMatch(host, "freepik.com") || shExpMatch(url, "www.freepik.com")) {
         return "PROXY 104.233.26.218:6056";
     }
 
     // Redirigir https://elements.envato.com a 104.239.43.124:5852
-    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "elements.envato.com")) {
+    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "www.elements.envato.com")) {
         return "PROXY 104.239.43.124:5852";
     }
 
