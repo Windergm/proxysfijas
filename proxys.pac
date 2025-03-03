@@ -4,16 +4,16 @@ function FindProxyForURL(url, host) {
         return "DIRECT"; // Conexión directa
     }
 
-    // Redirigir https://www.freepik.com a 104.233.26.218:6056
-    if (shExpMatch(host, "freepik.com") || shExpMatch(url, "www.freepik.com")) {
+    // Redirigir freepik.com y www.freepik.com al proxy 104.233.26.218:6056
+    if (dnsDomainIs(host, "freepik.com") || shExpMatch(host, "www.freepik.com")) {
         return "PROXY 104.233.26.218:6056";
     }
 
-    // Redirigir https://elements.envato.com a 104.239.43.124:5852
-    if (shExpMatch(host, "elements.envato.com") || shExpMatch(url, "www.elements.envato.com")) {
+    // Redirigir elements.envato.com y www.elements.envato.com al proxy 104.239.43.124:5852
+    if (dnsDomainIs(host, "elements.envato.com") || shExpMatch(host, "www.elements.envato.com")) {
         return "PROXY 104.239.43.124:5852";
     }
 
-    // Usar proxy para todas las demás páginas
-     return "PROXY 0.0.0.0:80"; 
+    // Bloquear todas las demás conexiones
+    return "PROXY 0.0.0.0:80";
 }
