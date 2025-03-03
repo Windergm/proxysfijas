@@ -1,12 +1,12 @@
 function FindProxyForURL(url, host) {
     // Proxy para envato elements
     if (shExpMatch(host, "*.elements.envato.com")) {
-        return "PROXY 192.168.1.1:8080"; // Reemplaza con la IP y puerto del proxy para envato
+        return "PROXY 104.239.43.124:5852"; // Reemplaza con la IP y puerto del proxy para envato
     }
 
     // Proxy para freepik.com
     if (shExpMatch(host, "*.freepik.com")) {
-        return "PROXY 192.168.1.2:8080"; // Reemplaza con la IP y puerto del proxy para freepik
+        return "PROXY 104.233.26.218:6056"; // Reemplaza con la IP y puerto del proxy para freepik
     }
 
     // Bloquear todas las demás páginas
