@@ -5,7 +5,7 @@ function FindProxyForURL(url, host) {
     }
 
     // Redirigir freepik.com y www.freepik.com al proxy 104.233.26.218:6056
-    if (dnsDomainIs(host, "freepik.com") || shExpMatch(host, "www.freepik.com")) {
+    if (dnsDomainIs(host, "https://www.freepik.com") || shExpMatch(host, "www.freepik.com")) {
         return "PROXY 104.233.26.218:6056";
     }
 
