@@ -13,7 +13,17 @@ function FindProxyForURL(url, host) {
         return proxyFreepik; // Usar proxy específico para Freepik
     }
      if (
-        dnsDomainIs(host, "https://m365.cloud.microsof") ||
+        dnsDomainIs(host, "m365.cloud.microsof") ||
+    ) {
+        return proxyEnvato; // Usar proxy específico para Freepik
+    }
+     if (
+        dnsDomainIs(host, "creativefabrica.com") ||
+    ) {
+        return proxyEnvato; // Usar proxy específico para Freepik
+    }
+     if (
+        dnsDomainIs(host, "creativefabrica.com") ||
     ) {
         return proxyEnvato; // Usar proxy específico para Freepik
     }
