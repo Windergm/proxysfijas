@@ -18,19 +18,19 @@ function FindProxyForURL(url, host) {
     ];
 
     // Comprobar si es Freepik
-    for(var i = 0; i < freepikDomains.length; i++) {
-        if(shExpMatch(host, freepikDomains[i])) {
-            return proxyFreepik;
+    for (var i = 0; i < freepikDomains.length; i++) {
+        if (shExpMatch(host, freepikDomains[i])) {
+            return proxyFreepik; // Usar proxy para Freepik
         }
     }
 
     // Comprobar si es Envato
-    for(var j = 0; j < envatoDomains.length; j++) {
-        if(shExpMatch(host, envatoDomains[j])) {
-            return proxyEnvato;
+    for (var j = 0; j < envatoDomains.length; j++) {
+        if (shExpMatch(host, envatoDomains[j])) {
+            return proxyEnvato; // Usar proxy para Envato
         }
     }
 
     // Bloquear todo lo demás
-    return "PROXY 0.0.0.0:80"; // Proxy inválido para bloquear acceso
+    return "return "PROXY 0.0.0.0:80"; // No usar proxy para otros dominios (bloquear acceso)
 }
