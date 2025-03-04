@@ -1,14 +1,36 @@
 function FindProxyForURL(url, host) {
-    // Proxy para envato elements
-    if (shExpMatch(host, "https://elements.envato.com")) {
-        return "PROXY 104.239.43.124:5852"; // Reemplaza con la IP y puerto del proxy para envato
+    // Direcciones de los proxies (MODIFICA ESTOS VALORES)
+    var proxyFreepik = "PROXY 123.123.123.123:8080"; // IP:Puerto para Freepik
+    var proxyEnvato = "PROXY 456.456.456.456:8080";  // IP:Puerto para Envato
+    
+    // Dominios permitidos (puedes añadir más subdominios si es necesario)
+    var freepikDomains = [
+        "*.freepik.com",
+        "*.freepik.es",
+        "*.freepik.net"
+    ];
+    
+    var envatoDomains = [
+        "*.elements.envato.com",
+        "*.envato.com",
+        "*.envato.net"
+        "*.labs.envato.com"
+    ];
+
+    // Comprobar si es Freepik
+    for(var i=0; i<freepikDomains.length; i++) {
+        if(shExpMatch(host, freepikDomains[i])) {
+            return proxyFreepik;
+        }
     }
 
-    // Proxy para freepik.com
-    if (shExpMatch(host, "*.freepik.com")) {
-        return "PROXY 104.233.26.218:6056"; // Reemplaza con la IP y puerto del proxy para freepik
+    // Comprobar si es Envato
+    for(var j=0; j<envatoDomains.length; j++) {
+        if(shExpMatch(host, envatoDomains[j])) {
+            return proxyEnvato;
+        }
     }
 
-    // Bloquear todas las demás páginas
-    return "PROXY 0.0.0.0:80"; // O "PROXY 0.0.0.0:80" para bloquear completamente
+    // Bloquear todo lo demás
+    return "PROXY 0.0.0.0:80"; // Proxy inválido para bloquear acceso
 }
