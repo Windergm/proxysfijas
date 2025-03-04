@@ -13,19 +13,19 @@ function FindProxyForURL(url, host) {
     var envatoDomains = [
         "*.elements.envato.com",
         "*.envato.com",
-        "*.envato.net"
+        "*.envato.net",
         "*.labs.envato.com"
     ];
 
     // Comprobar si es Freepik
-    for(var i=0; i<freepikDomains.length; i++) {
+    for(var i = 0; i < freepikDomains.length; i++) {
         if(shExpMatch(host, freepikDomains[i])) {
             return proxyFreepik;
         }
     }
 
     // Comprobar si es Envato
-    for(var j=0; j<envatoDomains.length; j++) {
+    for(var j = 0; j < envatoDomains.length; j++) {
         if(shExpMatch(host, envatoDomains[j])) {
             return proxyEnvato;
         }
