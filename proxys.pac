@@ -12,19 +12,20 @@ function FindProxyForURL(url, host) {
     ) {
         return proxyFreepik; // Usar proxy específico para Freepik
     }
-
-    // Dominios de Microsoft 365
-    if (
-        dnsDomainIs(host, "m365.cloud.microsoft.com")
+     if (
+        dnsDomainIs(host, "m365.cloud.microsof") ||
     ) {
-        return proxyEnvato; // Usar proxy específico para Microsoft 365
+        return proxyEnvato; // Usar proxy específico para Freepik
     }
-
-    // Dominios de Creative Fabrica
-    if (
-        dnsDomainIs(host, "creativefabrica.com")
+     if (
+        dnsDomainIs(host, "creativefabrica.com") ||
     ) {
-        return proxyEnvato; // Usar proxy específico para Creative Fabrica
+        return proxyEnvato; // Usar proxy específico para Freepik
+    }
+     if (
+        dnsDomainIs(host, "microsoft365.com") ||
+    ) {
+        return proxyEnvato; // Usar proxy específico para Freepik
     }
 
     // Dominios de Envato
