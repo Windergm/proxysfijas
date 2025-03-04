@@ -1,36 +1,28 @@
 function FindProxyForURL(url, host) {
     // Direcciones de los proxies (MODIFICA ESTOS VALORES)
-    var proxyFreepik = "PROXY 104.233.26.218:6056"; // IP:Puerto para Freepik
-    var proxyEnvato = "PROXY 104.239.43.124:5852";  // IP:Puerto para Envato
-    
-    // Dominios permitidos (puedes añadir más subdominios si es necesario)
-    var freepikDomains = [
-        "*.freepik.com",
-        "*.freepik.es",
-        "*.freepik.net"
-    ];
-    
-    var envatoDomains = [
-        "*.elements.envato.com",
-        "*.envato.com",
-        "*.envato.net",
-        "*.labs.envato.com"
-    ];
+    var proxyFreepik = "PROXY 104.233.26.218:6056"; // Proxy para Freepik
+    var proxyEnvato = "PROXY 104.239.43.124:5852";  // Proxy para Envato
+    var proxyGeneral = "PROXY 0.0.0.0:80";  // Proxy para todo lo demás
 
-    // Comprobar si es Freepik
-    for (var i = 0; i < freepikDomains.length; i++) {
-        if (shExpMatch(host, freepikDomains[i])) {
-            return proxyFreepik; // Usar proxy para Freepik
-        }
+    // Dominios de Freepik
+    if (
+        dnsDomainIs(host, "freepik.com") ||
+        dnsDomainIs(host, "freepik.es") ||
+        dnsDomainIs(host, "freepik.net")
+    ) {
+        return proxyFreepik; // Usar proxy específico para Freepik
     }
 
-    // Comprobar si es Envato
-    for (var j = 0; j < envatoDomains.length; j++) {
-        if (shExpMatch(host, envatoDomains[j])) {
-            return proxyEnvato; // Usar proxy para Envato
-        }
+    // Dominios de Envato
+    if (
+        dnsDomainIs(host, "elements.envato.com") ||
+        dnsDomainIs(host, "envato.com") ||
+        dnsDomainIs(host, "envato.net") ||
+        dnsDomainIs(host, "labs.envato.com")
+    ) {
+        return proxyEnvato; // Usar proxy específico para Envato
     }
 
-    // Bloquear todo lo demás
-    return "return "PROXY 0.0.0.0:80"; // No usar proxy para otros dominios (bloquear acceso)
+    // Usar proxy general para todas las demás páginas
+    return proxyGeneral;
 }
