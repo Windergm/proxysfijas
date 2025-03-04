@@ -24,6 +24,7 @@ function FindProxyForURL(url, host) {
     }
      if (
         dnsDomainIs(host, "microsoft365.com") ||
+      dnsDomainIs(host, "  m365.cloud.microsof") 
     ) {
         return proxyEnvato; // Usar proxy específico para Freepik
     }
