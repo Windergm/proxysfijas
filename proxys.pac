@@ -1,7 +1,7 @@
 function FindProxyForURL(url, host) {
     // Direcciones de los proxies (MODIFICA ESTOS VALORES)
-    var proxyFreepik = "PROXY 123.123.123.123:8080"; // IP:Puerto para Freepik
-    var proxyEnvato = "PROXY 456.456.456.456:8080";  // IP:Puerto para Envato
+    var proxyFreepik = "PROXY 104.233.26.218:6056"; // IP:Puerto para Freepik
+    var proxyEnvato = "PROXY 104.239.43.124:5852";  // IP:Puerto para Envato
     
     // Dominios permitidos (puedes añadir más subdominios si es necesario)
     var freepikDomains = [
